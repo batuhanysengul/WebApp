@@ -21,6 +21,8 @@ public class WebAppDbContext : DbContext
         base.OnConfiguring(optionsBuilder);
     }
 
+    
+
     protected override void OnModelCreating(ModelBuilder modelBuilder) 
     {
         modelBuilder.Entity<User>().Property(a => a.Name).HasColumnType("VARCHAR").HasMaxLength(200).IsRequired();
