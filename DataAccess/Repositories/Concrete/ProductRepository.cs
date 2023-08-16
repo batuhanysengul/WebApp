@@ -12,9 +12,20 @@ namespace DataAccess.Repositories.Concrete;
 
 public class ProductRepository : GenericRepository<Product>, IProductRepository
 {
-    public ProductRepository(WebAppDbContext dbContext) : base(dbContext)
-    {
-    }
+    public ProductRepository(WebAppDbContext dbContext) : base(dbContext) { }
 
     public WebAppDbContext WebAppContext { get { return (WebAppDbContext)dbContext; } }
+
+    public List<Product> GetAllProducts()
+    {
+        using (WebAppContext)
+        {
+            return WebAppContext.Products
+                .Include(x => x.Category)
+                .Include(x => x.Seller)
+                .ThenInclude(x => x.City)
+                .ToList(); //ThenInclude diye devam edilebilir. ThenInclude bağlı olduğuna göre çalışıyor.
+        }
+    }
 }
+

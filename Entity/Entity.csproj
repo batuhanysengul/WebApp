@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="VModels\" />
-    <Folder Include="PModels\" />
   </ItemGroup>
 
 </Project>

@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Models;
+namespace Entity.PModels;
 
-public class User : BaseEntity
+public class PmLogin
 {
-    public string ImgUrl { get; set; }
-    public string Name { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }
-    public City City { get; set; }
 }
